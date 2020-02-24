@@ -1,5 +1,6 @@
 //
-// Created by zero_ on 2/20/2020.
+// Created by Jonathan Young 2/20/2020.
 //
+
 
 #include "Histogram.h"

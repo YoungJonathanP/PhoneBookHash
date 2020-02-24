@@ -9,6 +9,8 @@
 //program to investigate the performance of different hash functions.
 //
 
+#include <Hashing.h>
+
 // Organizes and tests our first hashing function
 // receives input from main which reads file. Outputs test to an external file
 void testHash1(){
@@ -29,11 +31,22 @@ void testHash1(){
 
 
 int main(int Argc, char *Argv[]) {
-    Parsing Inputs;
-    for (int i = 1; i < Argc; i++) {
-        string FileName = Argv[i];
-        Inputs.processInput(FileName);
+//    Parsing Inputs;
+//    for (int i = 1; i < Argc; i++) {
+//        string FileName = Argv[i];
+//        Inputs.processInput(FileName);
+//
+//    }
+    char nts1[] = "Test";
+    char nts2[] = "Test";
+    string str1 (nts1);
+    string str2 (nts2);
 
-    }
+    hash<char*> ptr_hash;
+    hash<std::string> str_hash;
+
+    cout << "same hashes:\n" << std::boolalpha;
+    cout << "nts1 and nts2: " << (ptr_hash(nts1)==ptr_hash(nts2)) << '\n';
+    cout << "str1 and str2: " << (str_hash(str1)==str_hash(str2)) << '\n';
     return 0;
 }
