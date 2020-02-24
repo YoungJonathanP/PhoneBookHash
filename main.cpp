@@ -9,6 +9,25 @@
 //program to investigate the performance of different hash functions.
 //
 
+// Organizes and tests our first hashing function
+// receives input from main which reads file. Outputs test to an external file
+void testHash1(){
+
+}
+
+// Organizes and tests our first hashing function
+// receives input from main which reads file. Outputs test to an external file
+void testHash1(){
+
+}
+
+// Organizes and tests our first hashing function
+// receives input from main which reads file. Outputs test to an external file
+void testHash1(){
+
+}
+
+
 int main(int Argc, char *Argv[]) {
     Parsing Inputs;
     for (int i = 1; i < Argc; i++) {
