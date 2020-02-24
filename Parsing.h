@@ -7,6 +7,7 @@
 #define PHONEBOOKHASH_PARSING_H
 
 #include "Hashing.h"
+#include "PhoneBook.h"
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -22,8 +23,8 @@ public:
     void processInput(const string &FileName);
 
 private:
-
-    Hashing Person;
+    PhoneBook PhoneListings;
+    //Hashing Person;
     string Name;
     int Number;
     string TempNum;

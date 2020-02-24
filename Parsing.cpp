@@ -6,6 +6,7 @@
 
 #include "Parsing.h"
 
+
 // default constructor
 Parsing::Parsing() {
 
@@ -38,6 +39,6 @@ void Parsing::processInput(const string &FileName) {
         TempNum += ReadLine.substr(numberAdj1 + 2, numberAdj2);
         TempNum += ReadLine.substr(numberAdj2, 255);
         istringstream(TempNum) >> Number;
-
+        PhoneListings.add(Name, Number);
     }
 }

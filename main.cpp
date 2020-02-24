@@ -9,7 +9,9 @@
 //program to investigate the performance of different hash functions.
 //
 
-#include <Hashing.h>
+#include "Hashing.h"
+#include "Parsing.h"
+#include "PhoneBook.h"
 #include <string>
 #include <iostream>
 
@@ -33,22 +35,23 @@ void testHash3(){
 
 
 int main(int Argc, char *Argv[]) {
-//    Parsing Inputs;
-//    for (int i = 1; i < Argc; i++) {
-//        string FileName = Argv[i];
-//        Inputs.processInput(FileName);
+    Parsing Inputs;
+    for (int i = 1; i < Argc; i++) {
+        string FileName = Argv[i];
+        Inputs.processInput(FileName);
+
+    }
+
+//    char nts1[] = "Test";
+//    char nts2[] = "Test";
+//    string str1 (nts1);
+//    string str2 (nts2);
 //
-//    }
-    char nts1[] = "Test";
-    char nts2[] = "Test";
-    string str1 (nts1);
-    string str2 (nts2);
-
-    hash<char*> ptr_hash;
-    hash<std::string> str_hash;
-
-    cout << "same hashes:\n" << boolalpha;
-    cout << "nts1 and nts2: " << (ptr_hash(nts1)==ptr_hash(nts2)) << '\n';
-    cout << "str1 and str2: " << (str_hash(str1)==str_hash(str2)) << '\n';
+//    hash<char*> ptr_hash;
+//    hash<string> str_hash;
+//
+//    cout << "same hashes:\n" << boolalpha;
+//    cout << "nts1 and nts2: " << (ptr_hash(nts1)==ptr_hash(nts2)) << '\n';
+//    cout << "str1 and str2: " << (str_hash(str1)==str_hash(str2)) << '\n';
     return 0;
 }
