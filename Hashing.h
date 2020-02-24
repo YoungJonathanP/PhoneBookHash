@@ -1,5 +1,6 @@
 //
 // Created by Jonathan Young 2/20/2020.
+// This class contains the various hash methods that will be used for the purposes of our investigation
 //
 
 
@@ -13,33 +14,30 @@ using namespace std;
 
 class Hashing {
 private:
-    struct Person {
-        explicit Person(string name, int phone);
-        int phone;
-        string name;
-        Person* Next;
-    };
-    using Person = struct Person;
-    int key;
+
+    //using Person = struct Person;
     // max predetermined size of hash array
     const int CAPACITY = 4177;
 public:
+    // default constructor
     Hashing();
-
+    // default deconstructor
     ~Hashing();
 
     // hashing function using Modulo Arithmetic
     int hashMod(int);
 
-    // hashing function using String to integer conversion
+    // evaluates strings and converts those values to their ACSII value, then modded by max table size
     int hashString(string);
 
     // hashing function using folding of numeric values to create key
     int hashFolding(int);
 
-    // function to see if index contains a value at index key
-    bool collision(int key);
+    // hashing function that combines string hashing and integer folding hashing
+    int foldingString(int, string);
 
+    // hashing function that combines string hashing with modulo hashing
+    int moduloString(int, string);
 
 };
 
