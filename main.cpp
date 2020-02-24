@@ -10,6 +10,8 @@
 //
 
 #include <Hashing.h>
+#include <string>
+#include <iostream>
 
 // Organizes and tests our first hashing function
 // receives input from main which reads file. Outputs test to an external file
@@ -17,15 +19,15 @@ void testHash1(){
 
 }
 
-// Organizes and tests our first hashing function
+// Organizes and tests our second hashing function
 // receives input from main which reads file. Outputs test to an external file
-void testHash1(){
+void testHash2(){
 
 }
 
-// Organizes and tests our first hashing function
+// Organizes and tests our third hashing function
 // receives input from main which reads file. Outputs test to an external file
-void testHash1(){
+void testHash3(){
 
 }
 
@@ -45,7 +47,7 @@ int main(int Argc, char *Argv[]) {
     hash<char*> ptr_hash;
     hash<std::string> str_hash;
 
-    cout << "same hashes:\n" << std::boolalpha;
+    cout << "same hashes:\n" << boolalpha;
     cout << "nts1 and nts2: " << (ptr_hash(nts1)==ptr_hash(nts2)) << '\n';
     cout << "str1 and str2: " << (str_hash(str1)==str_hash(str2)) << '\n';
     return 0;
