@@ -17,7 +17,7 @@ private:
 
     //using Person = struct Person;
     // max predetermined size of hash array
-    const int CAPACITY = 4177;
+    static const int Capacity = 10;
 public:
     // default constructor
     Hashing();

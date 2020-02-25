@@ -10,6 +10,8 @@ Hashing::Hashing() {
 
 }
 
+//Hashing::Hashing(const int capacity) : CAPACITY(capacity) {}
+
 // default deconstructor
 Hashing::~Hashing() {
 
@@ -17,14 +19,14 @@ Hashing::~Hashing() {
 
 // takes the 10 digit phone number and mods it by the table size
 int Hashing::hashMod(int num) {
-    return (num%CAPACITY);
+    return (num % Capacity);
 }
 
 // evaluates strings and converts those values to their ACSII value, then modded by max table size
 int Hashing::hashString(const string& name) {
     int temp = 0;
     for (char i : name){
-        temp += int(i);
+        temp += 11 * int(i);
     }
     return hashMod(temp);
 }
@@ -51,6 +53,7 @@ int Hashing::foldingString(int num, const string& name) {
     return hashMod(hashString(name)+hashFolding(num));
 }
 
+// todo
 // hashing function that combines string hashing with modulo hashing
 int Hashing::moduloString(int num, const string& name) {
     return hashMod(hashString(name)+hashFolding(num));

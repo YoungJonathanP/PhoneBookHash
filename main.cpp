@@ -14,6 +14,7 @@
 #include "PhoneBook.h"
 #include "Histogram.h"
 #include <string>
+#include <fstream>
 #include <iostream>
 
 // Organizes and tests our first hashing function
@@ -34,26 +35,35 @@ void testHash3(){
 
 }
 
+void testIn(){
+    string line;
+    ifstream myfile ("C:\\Users\\zero_\\CLionProjects\\PhoneBookHash\\phonebook.txt");
+    if (myfile.is_open())
+    {
+        while ( getline (myfile,line) )
+        {
+            cout << line << '\n';
+        }
+        myfile.close();
+    }
+
+    else cout << "Unable to open file";
+}
+
 
 int main(int Argc, char *Argv[]) {
     Parsing Inputs;
-    PhoneBook* PhoneListing;
+    PhoneBook PhoneListing;
     Histogram outPut;
-    for (int i = 1; i < Argc; i++) {
-        string FileName = Argv[i];
-        PhoneListing = Inputs.processInput(FileName);
-    }
-    outPut.display(PhoneListing);
-//    char nts1[] = "Test";
-//    char nts2[] = "Test";
-//    string str1 (nts1);
-//    string str2 (nts2);
+    //ifstream myfile (R"(C:\Users\zero_\CLionProjects\PhoneBookHash\phonebook.txt)");
+    //PhoneListing =
+    Inputs.processInput("C:\\Users\\zero_\\CLionProjects\\PhoneBookHash\\phonebook.txt");
+//    for (int i = 1; i < Argc; i++) {
+//        string FileName = Argv[i];
+//        PhoneListing = Inputs.processInput(FileName);
 //
-//    hash<char*> ptr_hash;
-//    hash<string> str_hash;
-//
-//    cout << "same hashes:\n" << boolalpha;
-//    cout << "nts1 and nts2: " << (ptr_hash(nts1)==ptr_hash(nts2)) << '\n';
-//    cout << "str1 and str2: " << (str_hash(str1)==str_hash(str2)) << '\n';
+//    }
+    //outPut.display(PhoneListing);
+
     return 0;
 }

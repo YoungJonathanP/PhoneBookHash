@@ -6,12 +6,12 @@
 #include "PhoneBook.h"
 
 // constructs and initializes a phonebook array with size of 4177
-PhoneBook::PhoneBook() {
-    for (auto & i : PhoneBookArray){
-        i = new Person;
-        i->name = "";
-        i->phone = 0;
-        i->Next = nullptr;
+PhoneBook::PhoneBook()  {
+    for (int i = 0; i < CAPACITY; i++){
+        PhoneBookArray[i] = new Person;
+        PhoneBookArray[i]->name = ""; //("Frank" + to_string(i));
+        PhoneBookArray[i]->phone = 0;
+        PhoneBookArray[i]->Next = nullptr;
     }
 }
 

@@ -12,7 +12,7 @@
 class PhoneBook {
 private:
     // max predetermined size of hash array
-    static const int CAPACITY = 4177;
+    static const int CAPACITY = 10;
     // variable to track number of entries at a hash index
     int ItemsPerKey = 0;
 
@@ -23,7 +23,7 @@ private:
         Person* Next;
     };
     // array of indexes for phonebook objects
-    Person* PhoneBookArray[CAPACITY]{};
+    Person* PhoneBookArray[CAPACITY];
     // hash object to retrieve hash functionality
     Hashing hashFunct;
 

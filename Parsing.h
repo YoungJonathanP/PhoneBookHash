@@ -8,6 +8,7 @@
 
 #include "Hashing.h"
 #include "PhoneBook.h"
+#include "Histogram.h"
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -20,16 +21,16 @@ public:
     // default deconstructor
     ~Parsing();
     // reads generic file passed to it and reads information. Separates names with new entry until '/t' character and stores that value in a string. Reads remaining value and removes non-integer characters to form 10 digit number
-    PhoneBook* processInput(const string &FileName);
+    void processInput(const string &FileName);
 
-    //int numberOfEntries(int index);
 
 private:
     PhoneBook* PhoneListings;
-    //Hashing Person;
     string Name;
     int Number;
     string TempNum;
+    string TempNum2;
+    Histogram outPut;
 };
 
 
