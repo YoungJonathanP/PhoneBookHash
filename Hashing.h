@@ -28,16 +28,16 @@ public:
     int hashMod(int);
 
     // evaluates strings and converts those values to their ACSII value, then modded by max table size
-    int hashString(string);
+    int hashString(const string&);
 
     // hashing function using folding of numeric values to create key
     int hashFolding(int);
 
     // hashing function that combines string hashing and integer folding hashing
-    int foldingString(int, string);
+    int foldingString(int, const string&);
 
     // hashing function that combines string hashing with modulo hashing
-    int moduloString(int, string);
+    int moduloString(int, const string&);
 
 };
 

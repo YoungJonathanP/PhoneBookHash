@@ -18,12 +18,12 @@ Parsing::~Parsing() {
 }
 
 // reads generic file passed to it and reads information. Separates names with new entry until '/t' character and stores that value in a string. Reads remaining value and removes non-integer characters to form 10 digit number
-void Parsing::processInput(const string &FileName) {
+PhoneBook* Parsing::processInput(const string &FileName) {
     ifstream File;
     File.open(FileName);
     if (!File){
         cout << "ERROR: No File Found Matching : " << FileName << endl;
-        return;
+        return nullptr;
     }
     string ReadLine;
     while (!File.eof()){
@@ -39,6 +39,7 @@ void Parsing::processInput(const string &FileName) {
         TempNum += ReadLine.substr(numberAdj1 + 2, numberAdj2);
         TempNum += ReadLine.substr(numberAdj2, 255);
         istringstream(TempNum) >> Number;
-        PhoneListings.add(Name, Number);
+        PhoneListings->add(Name, Number);
     }
+    return PhoneListings;
 }

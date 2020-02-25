@@ -21,7 +21,7 @@ int Hashing::hashMod(int num) {
 }
 
 // evaluates strings and converts those values to their ACSII value, then modded by max table size
-int Hashing::hashString(string name) {
+int Hashing::hashString(const string& name) {
     int temp = 0;
     for (char i : name){
         temp += int(i);
@@ -47,11 +47,11 @@ int Hashing::hashFolding(int num) {
 }
 
 // hashing function that combines string hashing and integer folding hashing
-int Hashing::foldingString(int num, string name) {
+int Hashing::foldingString(int num, const string& name) {
     return hashMod(hashString(name)+hashFolding(num));
 }
 
 // hashing function that combines string hashing with modulo hashing
-int Hashing::moduloString(int num, string name) {
+int Hashing::moduloString(int num, const string& name) {
     return hashMod(hashString(name)+hashFolding(num));
 }

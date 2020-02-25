@@ -7,18 +7,34 @@
 
 // constructs and initializes a phonebook array with size of 4177
 PhoneBook::PhoneBook() {
-    for (int i = 0; i < CAPACITY; i++){
-        PhoneBookArray[i] = new Person;
-        PhoneBookArray[i]->name = "";
-        PhoneBookArray[i]->phone = 0;
-        PhoneBookArray[i]->Next = nullptr;
+    for (auto & i : PhoneBookArray){
+        i = new Person;
+        i->name = "";
+        i->phone = 0;
+        i->Next = nullptr;
     }
 }
 
 // deconstructor for phonebook and person objects created inside
 PhoneBook::~PhoneBook() {
-    // todo
-}
+    Person *curr;
+    Person *temp;
+    for (auto &i : PhoneBookArray) {
+        curr = i;
+//        if (i->name == "") {
+//            return;
+//        } else {
+//
+            while (curr->Next != nullptr) {
+                temp = curr;
+                curr = curr->Next;
+                delete temp;
+            }
+            delete curr;
+        }
+    delete *PhoneBookArray;
+    }
+//}
 
 // adds a person struct to our phonebookarray. Checks if value has been filled first, and then chains value
 void PhoneBook::add(const string &name, const int &num) {
@@ -30,8 +46,8 @@ void PhoneBook::add(const string &name, const int &num) {
         PhoneBookArray[index]->name = name;
         PhoneBookArray[index]->phone = num;
     } else {
-        Person* curr = PhoneBookArray[index];
-        Person* temp = new Person;
+        auto curr = PhoneBookArray[index];
+        auto* temp = new Person;
         temp->name = name;
         temp->phone = num;
         temp->Next = nullptr;
@@ -44,7 +60,20 @@ void PhoneBook::add(const string &name, const int &num) {
 
 // collision check for adding to a key location. Returns true if value exists at initial location, false otherwise
 bool PhoneBook::checkCollision(int key) {
-    return (PhoneBookArray[key]->name != "");
+    return (PhoneBookArray[key]->name != ""); //return (!PhoneBookArray[key]->name.empty());
 }
 
-
+int PhoneBook::numberOfEntries(int index) {
+    int count = 0;
+    if (PhoneBookArray[index]->name == ""){
+        return count;
+    } else {
+        count++;
+        Person* curr = PhoneBookArray[index];
+        while (curr->Next != nullptr){
+            count++;
+            curr = curr->Next;
+        }
+    }
+    return count;
+}

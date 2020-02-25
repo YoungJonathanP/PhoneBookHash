@@ -12,6 +12,7 @@
 #include "Hashing.h"
 #include "Parsing.h"
 #include "PhoneBook.h"
+#include "Histogram.h"
 #include <string>
 #include <iostream>
 
@@ -36,12 +37,13 @@ void testHash3(){
 
 int main(int Argc, char *Argv[]) {
     Parsing Inputs;
+    PhoneBook* PhoneListing;
+    Histogram outPut;
     for (int i = 1; i < Argc; i++) {
         string FileName = Argv[i];
-        Inputs.processInput(FileName);
-
+        PhoneListing = Inputs.processInput(FileName);
     }
-
+    outPut.display(PhoneListing);
 //    char nts1[] = "Test";
 //    char nts2[] = "Test";
 //    string str1 (nts1);

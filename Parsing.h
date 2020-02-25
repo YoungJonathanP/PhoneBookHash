@@ -20,10 +20,12 @@ public:
     // default deconstructor
     ~Parsing();
     // reads generic file passed to it and reads information. Separates names with new entry until '/t' character and stores that value in a string. Reads remaining value and removes non-integer characters to form 10 digit number
-    void processInput(const string &FileName);
+    PhoneBook* processInput(const string &FileName);
+
+    //int numberOfEntries(int index);
 
 private:
-    PhoneBook PhoneListings;
+    PhoneBook* PhoneListings;
     //Hashing Person;
     string Name;
     int Number;

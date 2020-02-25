@@ -9,6 +9,15 @@
 
 
 class Histogram {
+public:
+    Histogram();
+    ~Histogram();
+    void display(PhoneBook*);
+
+private:
+    PhoneBook* temp;
+    PhoneBook* curr;
+    int TotalPerKey = 0;
 
 };
 

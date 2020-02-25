@@ -14,7 +14,7 @@ private:
     // max predetermined size of hash array
     static const int CAPACITY = 4177;
     // variable to track number of entries at a hash index
-    int ItemsPerKey;
+    int ItemsPerKey = 0;
 
     // person struct with 3 variables under ownership
     struct Person {
@@ -23,7 +23,7 @@ private:
         Person* Next;
     };
     // array of indexes for phonebook objects
-    Person* PhoneBookArray[CAPACITY];
+    Person* PhoneBookArray[CAPACITY]{};
     // hash object to retrieve hash functionality
     Hashing hashFunct;
 
@@ -36,6 +36,8 @@ public:
     void add(const string&, const int&);
     // function to see if index contains a value at index key
     bool checkCollision(int key);
+
+    int numberOfEntries(int);
 
 };
 
