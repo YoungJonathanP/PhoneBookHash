@@ -4,6 +4,7 @@
 //
 
 #include "PhoneBook.h"
+#include <iostream>
 
 // constructs and initializes a phonebook array with size of 4177
 PhoneBook::PhoneBook()  {
@@ -19,21 +20,35 @@ PhoneBook::PhoneBook()  {
 PhoneBook::~PhoneBook() {
     Person *curr;
     Person *temp;
+    Person *front;
     for (auto &i : PhoneBookArray) {
         curr = &i;
         if (i.name == "") {
             continue;
         } else {
-            while (curr->Next != nullptr) {
-                temp = curr;
-                curr = curr->Next;
-                delete temp;
+            //removeHelper(curr);
+            while (curr != nullptr) {
+                temp = curr->Next;
+                delete curr;
+                curr = temp;
             }
-            delete curr;
+            i.Next = nullptr;
+            //cout << "deleting :" i << endl;
+            //delete curr;
             //delete[] PhoneBookArray;
         }
     }
-    }
+}
+
+//void PhoneBook::removeHelper(PhoneBook::Person *toBeDeleted) {
+//    if (toBeDeleted == nullptr){
+//        return;
+//    }
+//    removeHelper(toBeDeleted->Next);
+//    //toBeDeleted = nullptr;
+//    delete toBeDeleted;
+//}
+
 
 
 // adds a person struct to our phonebookarray. Checks if value has been filled first, and then chains value
@@ -77,3 +92,4 @@ int PhoneBook::numberOfEntries(int index) {
     }
     return count;
 }
+

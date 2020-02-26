@@ -39,6 +39,8 @@ public:
 
     int numberOfEntries(int);
 
+    //void removeHelper(Person*);
+
 };
 
 

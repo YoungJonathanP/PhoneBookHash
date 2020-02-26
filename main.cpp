@@ -54,8 +54,8 @@ void testHash3(){
 int main(int Argc, char *Argv[]) {
     Parsing Inputs;
     //PhoneBook PhoneListing;
-    Histogram outPut;
-    Inputs.processInput("/Users/jonathanyoung/CLionProjects/PhoneBookHash/phonebook.txt"); //C:\Users\zero_\CLionProjects\PhoneBookHash\phonebook.txt
+    Histogram outPut; // /Users/jonathanyoung/CLionProjects/PhoneBookHash/phonebook.txt
+    Inputs.processInput("C:\\Users\\zero_\\CLionProjects\\PhoneBookHash\\phonebook.txt"); //
 //    for (int i = 1; i < Argc; i++) {
 //        string FileName = Argv[i];
 //        PhoneListing = Inputs.processInput(FileName);
