@@ -8,10 +8,10 @@
 // constructs and initializes a phonebook array with size of 4177
 PhoneBook::PhoneBook()  {
     for (int i = 0; i < CAPACITY; i++){
-        PhoneBookArray[i] = new Person;
-        PhoneBookArray[i]->name = ""; //("Frank" + to_string(i));
-        PhoneBookArray[i]->phone = 0;
-        PhoneBookArray[i]->Next = nullptr;
+        //PhoneBookArray[i] = new Person();
+        PhoneBookArray[i].name = ""; //("Frank" + to_string(i));
+        PhoneBookArray[i].phone = 0;
+        PhoneBookArray[i].Next = nullptr;
     }
 }
 
@@ -20,33 +20,33 @@ PhoneBook::~PhoneBook() {
     Person *curr;
     Person *temp;
     for (auto &i : PhoneBookArray) {
-        curr = i;
-//        if (i->name == "") {
-//            return;
-//        } else {
-//
+        curr = &i;
+        if (i.name == "") {
+            continue;
+        } else {
             while (curr->Next != nullptr) {
                 temp = curr;
                 curr = curr->Next;
                 delete temp;
             }
             delete curr;
+            //delete[] PhoneBookArray;
         }
-    delete *PhoneBookArray;
     }
-//}
+    }
+
 
 // adds a person struct to our phonebookarray. Checks if value has been filled first, and then chains value
-void PhoneBook::add(const string &name, const int &num) {
+void PhoneBook::add(const string &name, const unsigned int &num) {
     // indexing by hash string and folding
     int index = hashFunct.foldingString(num, name);
     // indexing by hash string and modulo math
     //int index1 = hashFunct.moduloString(num, name);
     if (!checkCollision(index)){
-        PhoneBookArray[index]->name = name;
-        PhoneBookArray[index]->phone = num;
+        PhoneBookArray[index].name = name;
+        PhoneBookArray[index].phone = num;
     } else {
-        auto curr = PhoneBookArray[index];
+        auto* curr = &PhoneBookArray[index];
         auto* temp = new Person;
         temp->name = name;
         temp->phone = num;
@@ -60,16 +60,16 @@ void PhoneBook::add(const string &name, const int &num) {
 
 // collision check for adding to a key location. Returns true if value exists at initial location, false otherwise
 bool PhoneBook::checkCollision(int key) {
-    return (PhoneBookArray[key]->name != ""); //return (!PhoneBookArray[key]->name.empty());
+    return (PhoneBookArray[key].name != ""); //return (!PhoneBookArray[key]->name.empty());
 }
 
 int PhoneBook::numberOfEntries(int index) {
     int count = 0;
-    if (PhoneBookArray[index]->name == ""){
+    if (PhoneBookArray[index].name == ""){
         return count;
     } else {
         count++;
-        Person* curr = PhoneBookArray[index];
+        Person* curr = &PhoneBookArray[index];
         while (curr->Next != nullptr){
             count++;
             curr = curr->Next;

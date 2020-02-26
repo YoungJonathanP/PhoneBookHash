@@ -12,7 +12,7 @@ class Histogram {
 public:
     Histogram();
     ~Histogram();
-    void display(PhoneBook*);
+    void display(PhoneBook&);
 
 private:
     PhoneBook* temp;

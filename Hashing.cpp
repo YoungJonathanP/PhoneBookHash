@@ -18,7 +18,7 @@ Hashing::~Hashing() {
 }
 
 // takes the 10 digit phone number and mods it by the table size
-int Hashing::hashMod(int num) {
+int Hashing::hashMod(unsigned int num) {
     return (num % Capacity);
 }
 
@@ -32,7 +32,7 @@ int Hashing::hashString(const string& name) {
 }
 
 // receives a 10 digit number and separates and adds them in chunks. Then multiplied by last 4 digits
-int Hashing::hashFolding(int num) {
+int Hashing::hashFolding(unsigned int num) {
     int firstThree = 0;
     int tempThree = 0;
     int secondThree = 0;
@@ -49,12 +49,12 @@ int Hashing::hashFolding(int num) {
 }
 
 // hashing function that combines string hashing and integer folding hashing
-int Hashing::foldingString(int num, const string& name) {
+int Hashing::foldingString(unsigned int num, const string& name) {
     return hashMod(hashString(name)+hashFolding(num));
 }
 
 // todo
 // hashing function that combines string hashing with modulo hashing
-int Hashing::moduloString(int num, const string& name) {
+int Hashing::moduloString(unsigned int num, const string& name) {
     return hashMod(hashString(name)+hashFolding(num));
 }

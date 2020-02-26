@@ -11,19 +11,19 @@
 // phonebook class. Holds information for hashed person values
 class PhoneBook {
 private:
-    // max predetermined size of hash array
-    static const int CAPACITY = 10;
+    // max predetermined size of hash array 4177
+    static const int CAPACITY = 4177;
     // variable to track number of entries at a hash index
     int ItemsPerKey = 0;
 
     // person struct with 3 variables under ownership
     struct Person {
-        int phone;
+        unsigned int phone;
         string name;
         Person* Next;
     };
     // array of indexes for phonebook objects
-    Person* PhoneBookArray[CAPACITY];
+    Person PhoneBookArray[CAPACITY];
     // hash object to retrieve hash functionality
     Hashing hashFunct;
 
@@ -33,7 +33,7 @@ public:
     // deconstructor for phonebook and person objects created inside
     ~PhoneBook();
     // adds a person struct to our phonebookarray. Checks if value has been filled first, and then chains value
-    void add(const string&, const int&);
+    void add(const string&, const unsigned int&);
     // function to see if index contains a value at index key
     bool checkCollision(int key);
 

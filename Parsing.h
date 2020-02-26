@@ -25,9 +25,9 @@ public:
 
 
 private:
-    PhoneBook* PhoneListings;
+    PhoneBook PhoneListings;
     string Name;
-    int Number;
+    unsigned int Number;
     string TempNum;
     string TempNum2;
     Histogram outPut;

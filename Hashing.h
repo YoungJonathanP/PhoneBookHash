@@ -16,8 +16,8 @@ class Hashing {
 private:
 
     //using Person = struct Person;
-    // max predetermined size of hash array
-    static const int Capacity = 10;
+    // max predetermined size of hash array 4177
+    static const int Capacity = 4177;
 public:
     // default constructor
     Hashing();
@@ -25,19 +25,19 @@ public:
     ~Hashing();
 
     // hashing function using Modulo Arithmetic
-    int hashMod(int);
+    int hashMod(unsigned int);
 
     // evaluates strings and converts those values to their ACSII value, then modded by max table size
     int hashString(const string&);
 
     // hashing function using folding of numeric values to create key
-    int hashFolding(int);
+    int hashFolding(unsigned int);
 
     // hashing function that combines string hashing and integer folding hashing
-    int foldingString(int, const string&);
+    int foldingString(unsigned int, const string&);
 
     // hashing function that combines string hashing with modulo hashing
-    int moduloString(int, const string&);
+    int moduloString(unsigned int, const string&);
 
 };
 

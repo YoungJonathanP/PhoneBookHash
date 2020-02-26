@@ -35,29 +35,27 @@ void testHash3(){
 
 }
 
-void testIn(){
-    string line;
-    ifstream myfile ("C:\\Users\\zero_\\CLionProjects\\PhoneBookHash\\phonebook.txt");
-    if (myfile.is_open())
-    {
-        while ( getline (myfile,line) )
-        {
-            cout << line << '\n';
-        }
-        myfile.close();
-    }
-
-    else cout << "Unable to open file";
-}
+//void testIn(){
+//    string line;
+//    ifstream myfile ("C:\\Users\\zero_\\CLionProjects\\PhoneBookHash\\phonebook.txt");
+//    if (myfile.is_open())
+//    {
+//        while ( getline (myfile,line) )
+//        {
+//            cout << line << '\n';
+//        }
+//        myfile.close();
+//    }
+//
+//    else cout << "Unable to open file";
+//}
 
 
 int main(int Argc, char *Argv[]) {
     Parsing Inputs;
-    PhoneBook PhoneListing;
+    //PhoneBook PhoneListing;
     Histogram outPut;
-    //ifstream myfile (R"(C:\Users\zero_\CLionProjects\PhoneBookHash\phonebook.txt)");
-    //PhoneListing =
-    Inputs.processInput("C:\\Users\\zero_\\CLionProjects\\PhoneBookHash\\phonebook.txt");
+    Inputs.processInput("/Users/jonathanyoung/CLionProjects/PhoneBookHash/phonebook.txt"); //C:\Users\zero_\CLionProjects\PhoneBookHash\phonebook.txt
 //    for (int i = 1; i < Argc; i++) {
 //        string FileName = Argv[i];
 //        PhoneListing = Inputs.processInput(FileName);
