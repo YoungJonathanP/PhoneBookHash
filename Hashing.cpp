@@ -19,7 +19,7 @@ Hashing::~Hashing() {
 
 // takes the 10 digit phone number and mods it by the table size
 int Hashing::hashMod(unsigned int num) {
-    return (num % Capacity);
+    return num % Capacity;
 }
 
 // evaluates strings and converts those values to their ACSII value, then modded by max table size
