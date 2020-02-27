@@ -18,8 +18,10 @@ class Parsing {
 public:
     // default constructor
     Parsing();
+
     // default deconstructor
     ~Parsing();
+
     // reads generic file passed to it and reads information. Separates names with new entry until '/t' character and stores that value in a string. Reads remaining value and removes non-integer characters to form 10 digit number
     void processInput(const string &FileName);
 
@@ -27,7 +29,7 @@ public:
 private:
     PhoneBook PhoneListings;
     string Name;
-    unsigned int Number;
+    unsigned int Number = 0;
     string TempNum;
     string TempNum2;
     Histogram outPut;

@@ -6,16 +6,12 @@
 #include "Hashing.h"
 
 // default constructor
-Hashing::Hashing() {
-
-}
+Hashing::Hashing() = default;
 
 //Hashing::Hashing(const int capacity) : CAPACITY(capacity) {}
 
 // default deconstructor
-Hashing::~Hashing() {
-
-}
+Hashing::~Hashing() = default;
 
 // takes the 10 digit phone number and mods it by the table size
 int Hashing::hashMod(unsigned int num) {
@@ -23,9 +19,9 @@ int Hashing::hashMod(unsigned int num) {
 }
 
 // evaluates strings and converts those values to their ACSII value, then modded by max table size
-int Hashing::hashString(const string& name) {
+int Hashing::hashString(const string &name) {
     int temp = 0;
-    for (char i : name){
+    for (char i : name) {
         temp += 11 * int(i);
     }
     return hashMod(temp);
@@ -48,13 +44,26 @@ int Hashing::hashFolding(unsigned int num) {
     return ((firstThree + secondThree) * lastFour);
 }
 
-// hashing function that combines string hashing and integer folding hashing
-int Hashing::foldingString(unsigned int num, const string& name) {
-    return hashMod(hashString(name)+hashFolding(num));
+// hashing function that converts value to binary and uses bitwise shift operators to randomize the value
+int Hashing::binaryManipulation(unsigned int num) {
+    long manipVal = num;
+    manipVal << 2; // binary bitwise shift of 2 to the left
+    manipVal *= 7; // multiply by highest single digit prime
+    manipVal >> 2; // binary bitwise shift of 2 to the right
+    return (unsigned int) manipVal;
 }
 
-// todo
+// hashing function that combines string hashing and integer folding hashing
+int Hashing::foldingString(unsigned int num, const string &name) {
+    return hashMod(hashString(name) + hashFolding(num));
+}
+
 // hashing function that combines string hashing with modulo hashing
-int Hashing::moduloString(unsigned int num, const string& name) {
-    return hashMod(hashString(name)+hashFolding(num));
+int Hashing::moduloString(unsigned int num, const string &name) {
+    return hashMod(hashString(name) + hashMod(num));
+}
+
+// hashing function that combines string hashing with binary manipulation
+int Hashing::binaryString(unsigned int num, const string &name) {
+    return hashMod(hashString(name) + binaryManipulation(num));
 }

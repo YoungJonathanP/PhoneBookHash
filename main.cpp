@@ -9,59 +9,17 @@
 //program to investigate the performance of different hash functions.
 //
 
-#include "Hashing.h"
 #include "Parsing.h"
 #include "PhoneBook.h"
 #include "Histogram.h"
 #include <string>
-#include <fstream>
-#include <iostream>
 
-// Organizes and tests our first hashing function
-// receives input from main which reads file. Outputs test to an external file
-void testHash1(){
-
-}
-
-// Organizes and tests our second hashing function
-// receives input from main which reads file. Outputs test to an external file
-void testHash2(){
-
-}
-
-// Organizes and tests our third hashing function
-// receives input from main which reads file. Outputs test to an external file
-void testHash3(){
-
-}
-
-//void testIn(){
-//    string line;
-//    ifstream myfile ("C:\\Users\\zero_\\CLionProjects\\PhoneBookHash\\phonebook.txt");
-//    if (myfile.is_open())
-//    {
-//        while ( getline (myfile,line) )
-//        {
-//            cout << line << '\n';
-//        }
-//        myfile.close();
-//    }
-//
-//    else cout << "Unable to open file";
-//}
-
-
+// main method- receives piped file for input processing and sends to Parsing
 int main(int Argc, char *Argv[]) {
     Parsing Inputs;
-    //PhoneBook PhoneListing;
-    Histogram outPut; // /Users/jonathanyoung/CLionProjects/PhoneBookHash/phonebook.txt
-    Inputs.processInput("C:\\Users\\zero_\\CLionProjects\\PhoneBookHash\\phonebook.txt"); //
-//    for (int i = 1; i < Argc; i++) {
-//        string FileName = Argv[i];
-//        PhoneListing = Inputs.processInput(FileName);
-//
-//    }
-    //outPut.display(PhoneListing);
-
+    for (int i = 1; i < Argc; i++) {
+        string FileName = Argv[i];
+        Inputs.processInput(FileName);
+    }
     return 0;
 }

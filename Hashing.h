@@ -12,6 +12,7 @@
 
 using namespace std;
 
+// Hashing class for creating keys
 class Hashing {
 private:
 
@@ -21,6 +22,7 @@ private:
 public:
     // default constructor
     Hashing();
+
     // default deconstructor
     ~Hashing();
 
@@ -28,17 +30,22 @@ public:
     int hashMod(unsigned int);
 
     // evaluates strings and converts those values to their ACSII value, then modded by max table size
-    int hashString(const string&);
+    int hashString(const string &);
 
     // hashing function using folding of numeric values to create key
     int hashFolding(unsigned int);
 
+    // hashing function that converts value to binary and uses bitwise shift operators to randomize the value
+    int binaryManipulation(unsigned int);
+
     // hashing function that combines string hashing and integer folding hashing
-    int foldingString(unsigned int, const string&);
+    int foldingString(unsigned int, const string &);
 
     // hashing function that combines string hashing with modulo hashing
-    int moduloString(unsigned int, const string&);
+    int moduloString(unsigned int, const string &);
 
+    // hashing function that combines string hashing with binary manipulation
+    int binaryString(unsigned int, const string &);
 };
 
 
